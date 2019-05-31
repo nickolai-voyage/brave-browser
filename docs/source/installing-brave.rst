@@ -21,9 +21,7 @@ Ubuntu 16.04+ and Mint 18+
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
-    source /etc/os-release
-
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-$(lsb_release -cs).list
 
     sudo apt update
 
